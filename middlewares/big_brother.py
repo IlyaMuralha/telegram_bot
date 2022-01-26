@@ -33,7 +33,7 @@ class BigBrotherMiddleware(BaseMiddleware):
     # 3
     async def on_pre_process_message(self, message: types.Message, data: dict):
         logging.info(f'3. Pre Process Message, {data=}')
-        logging.info('Next point is Filters, Process Message')
+        logging.info('Next point is Filters')
         data['pre_proc_msg_middleware'] = 'This info go to on_process_message'
 
     # 4 Filters
@@ -44,5 +44,10 @@ class BigBrotherMiddleware(BaseMiddleware):
         logging.info('Next point is Handler')
         data['data_middleware'] = 'This info go to handler'
 
-    # 6
-    async def
+    # 6 Handler
+
+    # 7
+    async def on_post_process_message(self, message: types.Message, data: dict):
+        logging.info(f'7. Post Process Message, {data=}')
+        logging.info('Next point is Post Process Update')
+
