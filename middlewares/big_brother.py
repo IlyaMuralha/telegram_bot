@@ -47,7 +47,11 @@ class BigBrotherMiddleware(BaseMiddleware):
     # 6 Handler
 
     # 7
-    async def on_post_process_message(self, message: types.Message, data: dict):
-        logging.info(f'7. Post Process Message, {data=}')
+    async def on_post_process_message(self, message: types.Message, data_from_handler: list, data: dict):
+        logging.info(f'7. Post Process Message, {data=}, {data_from_handler}')
         logging.info('Next point is Post Process Update')
+
+    # 8
+    async def on_post_process_update(self, update: types.Update, data_from_handler: list, data: dict):
+        logging.info(f'8. Post Process Update, {data=}, {data_from_handler}')
 
