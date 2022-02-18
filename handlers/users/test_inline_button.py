@@ -9,7 +9,7 @@ from keyboards.inline.choise_buttons import choise, buy_pear_keyboard, buy_apple
 from loader import dp, bot
 
 
-@dp.message_handler(Command('items'))
+@dp.message_handler(Command('buy'))
 async def show_inline(message: types.Message):
     await message.answer('We have two products for you \n'
                          'apples and pears \n'
