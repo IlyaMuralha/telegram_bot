@@ -2,6 +2,7 @@ from aiogram import Dispatcher
 
 from loader import dp
 # from .is_admin import AdminFilter
+from .forwarded_message import IsForwarded
 
 
 # if __name__ == "filters":
