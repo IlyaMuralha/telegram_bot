@@ -1,13 +1,17 @@
 import logging
+import sqlite3
 
 from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
 
-from loader import dp
-from utils.misc import rate_limit
+from loader import dp, db
 
 
-@rate_limit(5, key='start')
 @dp.message_handler(CommandStart())
 async def bot_start(message: types.Message):
+    name = message.from_user.full_name
+    try:
+        db.add_user(id=message.from_user.id, name=name)
+    except sqlite3.IntegrityError as err:
+        print(err)
     await message.answer(f"Привет, {message.from_user.full_name}!")
