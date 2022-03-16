@@ -11,6 +11,6 @@ IP = env.str("IP")  # Тоже str, но для айпи адреса хоста
 DB_USER = env.str("DB_USER")
 DB_PASS = env.str("DB_PASS")
 DB_NAME = env.str("DB_NAME")
-DATABASE = env.str("DATABASE")
+# DATABASE = env.str("DATABASE")
 
 POSTGRES_URI = f'postgresql://{DB_USER}:{DB_PASS}@{IP}/{DB_NAME}'
